@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.wfd.qq.MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bg1"
+        tools:ignore="MissingConstraints" />
+    <LinearLayout
+
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="100dp"
+        android:layout_marginEnd="50dp">
+
+        <!--        用户名-->
+        <EditText
+            android:id="@+id/account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:hint="@string/enter_account"
+            android:textSize="16sp" />
+
+        <!--        密码-->
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:hint="@string/enter_password"
+            android:textSize="16sp"/>
+
+        <!--        CheckBox-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <CheckBox
+                android:id="@+id/rememberPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="@string/remember_name" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--        login-->
+            <Button
+                android:id="@+id/login"
+                android:layout_width="88dp"
+                android:layout_height="55dp"
+                android:text="@string/login"
+                android:visibility="visible" />
+
+            <!-- register -->
+            <Button
+                android:id="@+id/register"
+
+                android:layout_marginStart="110dp"
+                android:text="@string/register"
+                android:layout_width="88dp"
+                android:layout_height="55dp"
+
+                android:visibility="visible" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
