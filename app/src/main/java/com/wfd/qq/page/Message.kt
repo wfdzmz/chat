@@ -1,13 +1,11 @@
-package com.wfd.qq.login_register
+package com.wfd.qq.page
 
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -30,6 +28,12 @@ class Message : Fragment(){
 
     private val message_item = ArrayList<Message_item>()
 
+
+    private val data = listOf("Apple", "Banana", "Orange", "Watermelon",
+        "Pear", "Grape", "Pineapple", "Strawberry", "Cherry", "Mango",
+        "Apple", "Banana", "Orange", "Watermelon", "Pear", "Grape",
+        "Pineapple", "Strawberry", "Cherry", "Mango")
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_message, container, false)
     }
@@ -45,21 +49,25 @@ class Message : Fragment(){
 //        passwordEdit2 = view.findViewById<EditText>(R.id.password2)
 //        TableUser = db.userDao() ;
 
-        initFruits() // 初始化
+        val adapter = ArrayAdapter<String>(requireContext(),android.R.layout.simple_list_item_1,data)
 
-        val layoutManager = LinearLayoutManager(requireContext())
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
+        val listView = view.findViewById<ListView>(R.id.listView)
+        listView.adapter = adapter
 
+//        initFruits() // 初始化
+////
+//        val layoutManager = LinearLayoutManager(requireContext())
+//        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
+//
 //        layoutManager.orientation = LinearLayoutManager.HORIZONTAL
-        recyclerView.layoutManager = layoutManager
-        val adapter = Message_item_Adapter(message_item)
-        recyclerView.adapter = adapter
-
+//        recyclerView.layoutManager = layoutManager
+//        val adapter = Message_item_Adapter(message_item)
+//        recyclerView.adapter = adapter
     }
     private fun initFruits() {
         repeat(10) {
-            message_item.add(Message_item("name1", R.drawable.ic_launcher_foreground))
-            message_item.add(Message_item("name2", R.drawable.ic_launcher_foreground))
+            message_item.add(Message_item("name1", R.drawable.massage_yes))
+            message_item.add(Message_item("name2", R.drawable.massage_no))
         }
     }
 
