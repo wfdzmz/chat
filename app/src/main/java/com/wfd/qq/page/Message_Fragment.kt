@@ -5,19 +5,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.qq.R
 import com.wfd.qq.Adapter.Message_item_Adapter
-import com.wfd.qq.dao.UserDao
-import com.wfd.qq.entity.AppDatabase
 import com.wfd.qq.entity.Message_item
-import com.wfd.qq.entity.User
 
-class Message : Fragment(){
+class Message_Fragment : Fragment() , Message_item_Adapter.OnItemClickListener {
 
 //    private lateinit var db: AppDatabase
 //    private lateinit var TableUser: UserDao
@@ -26,13 +22,7 @@ class Message : Fragment(){
 //    private lateinit var passwordEdit1: EditText
 //    private lateinit var passwordEdit2: EditText
 
-    private val message_item = ArrayList<Message_item>()
-
-
-    private val data = listOf("Apple", "Banana", "Orange", "Watermelon",
-        "Pear", "Grape", "Pineapple", "Strawberry", "Cherry", "Mango",
-        "Apple", "Banana", "Orange", "Watermelon", "Pear", "Grape",
-        "Pineapple", "Strawberry", "Cherry", "Mango")
+    private val message_list = ArrayList<Message_item>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_message, container, false)
@@ -49,25 +39,36 @@ class Message : Fragment(){
 //        passwordEdit2 = view.findViewById<EditText>(R.id.password2)
 //        TableUser = db.userDao() ;
 
-        val adapter = ArrayAdapter<String>(requireContext(),android.R.layout.simple_list_item_1,data)
-
-        val listView = view.findViewById<ListView>(R.id.listView)
-        listView.adapter = adapter
-
-//        initFruits() // 初始化
-////
-//        val layoutManager = LinearLayoutManager(requireContext())
-//        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
+        initFruits() // 初始化
 //
+        val layoutManager = LinearLayoutManager(context)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.message_recyclerView)
+
 //        layoutManager.orientation = LinearLayoutManager.HORIZONTAL
-//        recyclerView.layoutManager = layoutManager
-//        val adapter = Message_item_Adapter(message_item)
-//        recyclerView.adapter = adapter
+        recyclerView.layoutManager = layoutManager
+
+        val adapter = Message_item_Adapter(message_list)
+
+
+
+        recyclerView.adapter = adapter.apply {
+            setOnItemClickListener { position ->
+                onItemClick(position)
+            }
+        }
     }
+    override fun onItemClick(position:Int) {
+        // 处理点击事件
+        Toast.makeText(context,"Clicked item at position $position",Toast.LENGTH_SHORT).show()
+        parentFragmentManager.beginTransaction()
+        .replace(R.id.bottom_navigation_view, Chat_Fragment())
+        .commit()
+    }
+
     private fun initFruits() {
-        repeat(10) {
-            message_item.add(Message_item("name1", R.drawable.massage_yes))
-            message_item.add(Message_item("name2", R.drawable.massage_no))
+        repeat(20) {
+            message_list.add(Message_item("name1", R.drawable.foreground))
+            message_list.add(Message_item("name2", R.drawable.contacts_yes))
         }
     }
 

@@ -15,11 +15,11 @@
             android:launchMode="singleTop">
         </activity>
 
-
         <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar"-->
         <activity
             android:name="com.wfd.qq.MainActivity"
             android:exported="true"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

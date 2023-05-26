@@ -5,6 +5,7 @@
     <item
         android:id="@+id/bottom_nav_message"
         android:icon="@drawable/space_yes"
+
         android:title="@string/message"
         app:showAsAction="always"/>
     <item

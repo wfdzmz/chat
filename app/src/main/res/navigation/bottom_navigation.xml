@@ -10,14 +10,16 @@
 
     <fragment
         android:id="@+id/nav_message"
-        android:name="com.wfd.qq.page.Message"
+
+        app:defaultNavHost="true"
+        android:name="com.wfd.qq.page.Message_Fragment"
         android:label="@string/message"
         tools:layout="@layout/fragment_message">
 <!--        未知，有疑-->
-<!--        <action-->
-<!--            android:id="@+id/nav_home_to_content"-->
-<!--            app:destination="@+id/nav_content"-->
-<!--            app:popUpTo="@id/nav_host_fragment"/>-->
+        <action
+            android:id="@+id/nav_home_to_content"
+            app:destination="@+id/nav_content"
+            app:popUpTo="@id/nav_host_fragment"/>
     </fragment>
 
     <fragment

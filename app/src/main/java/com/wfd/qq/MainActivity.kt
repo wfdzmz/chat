@@ -3,23 +3,18 @@ package com.wfd.qq
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Button
 import android.widget.Toast
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
-import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import com.example.qq.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.wfd.qq.activity.LoginRegisterActivity
-import com.wfd.qq.login_register.Login_Fragment
 import com.wfd.qq.page.Contacts_Fragment
-import com.wfd.qq.page.Message
+import com.wfd.qq.page.Message_Fragment
 import com.wfd.qq.page.Space_Fragment
 
 class MainActivity : AppCompatActivity() {
@@ -36,7 +31,7 @@ class MainActivity : AppCompatActivity() {
             when (menuItem.itemId) {
                 R.id.bottom_nav_message -> {
 
-                    supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment, Message()).commit()
+                    supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment, Message_Fragment()).commit()
 //                    Toast.makeText(this,"1",Toast.LENGTH_SHORT).show()
                      // 处理 Home 选项卡的点击事件
                     true
@@ -93,12 +88,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // 设置Action bar上的导航按钮响应
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.container2)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
-    }
-
     // 添加Action bar选项菜单
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main, menu)
@@ -106,12 +95,19 @@ class MainActivity : AppCompatActivity() {
     }
     // 设置顶部菜单的响应
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
         when (item.itemId) {
             R.id.sign_out -> {
                 finish()
                 val intent = Intent(this, LoginRegisterActivity::class.java)
                 startActivity(intent)
+                val prefs = getSharedPreferences("login_data",Context.MODE_PRIVATE)
+
+                val editor = prefs?.edit()
+                editor?.putBoolean("login", false)
+                editor?.apply()
             }
+
         }
         return true
     }

@@ -17,6 +17,9 @@
         此外，它还可以帮助你结交新朋友，扩大你的社交圈子，让你的生活更加充实和有趣。点击任意地方继续</string>
 
     <string name="message">消息</string>
+    <string name="enter_message">输入消息</string>
+    <string name="send">发送</string>
+
     <string name="contacts">联系人</string>
     <string name="space">空间</string>
     <string name="home">主页</string>
