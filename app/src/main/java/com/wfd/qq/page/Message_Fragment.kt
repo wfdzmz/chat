@@ -60,9 +60,7 @@ class Message_Fragment : Fragment() , Message_item_Adapter.OnItemClickListener {
     override fun onItemClick(position:Int) {
         // 处理点击事件
         Toast.makeText(context,"Clicked item at position $position",Toast.LENGTH_SHORT).show()
-        parentFragmentManager.beginTransaction()
-        .replace(R.id.bottom_navigation_view, Chat_Fragment())
-        .commit()
+        parentFragmentManager.beginTransaction().replace(R.id.nav_host_fragment, Chat_Fragment()).commit()
     }
 
     private fun initFruits() {
