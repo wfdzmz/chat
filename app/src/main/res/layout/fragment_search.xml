@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+    <!--        用户名-->
+    <EditText
+        android:id="@+id/search_account"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="@string/enter_account"
+        android:textSize="16sp" />
+
+        <!--        login-->
+        <Button
+            android:id="@+id/search_button"
+            android:layout_width="88dp"
+            android:layout_height="55dp"
+            android:text="@string/search"/>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

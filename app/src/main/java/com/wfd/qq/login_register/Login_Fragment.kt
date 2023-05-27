@@ -77,7 +77,7 @@ class Login_Fragment : Fragment(){
 
                 // 跳转到欢迎页
                 parentFragmentManager.beginTransaction()
-                    .replace(R.id.container, Welcome_Fragment())
+                    .replace(R.id.login_register_container, Welcome_Fragment())
                     .commit()
             }
         }
@@ -86,7 +86,7 @@ class Login_Fragment : Fragment(){
         val registerButton = view.findViewById<Button>(R.id.register)
         registerButton.setOnClickListener {
             parentFragmentManager.beginTransaction()
-                .replace(R.id.container, Register_Fragment())
+                .replace(R.id.login_register_container, Register_Fragment())
                 .addToBackStack(null)
                 .commit()
         }

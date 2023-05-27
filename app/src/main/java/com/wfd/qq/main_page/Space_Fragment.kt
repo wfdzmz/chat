@@ -1,14 +1,13 @@
-package com.wfd.qq.page
+package com.wfd.qq.main_page
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.qq.R
-import com.wfd.qq.Adapter.Message_item_Adapter
 import com.wfd.qq.Adapter.Space_item_Adapter
-import com.wfd.qq.entity.Message_item
 import com.wfd.qq.entity.Space_item
+import com.wfd.qq.other_page.Chat_Fragment
 
 class Space_Fragment : Fragment() , Space_item_Adapter.OnItemClickListener {
 

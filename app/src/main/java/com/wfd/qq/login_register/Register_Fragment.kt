@@ -63,7 +63,7 @@ class Register_Fragment : Fragment(){
                     Toast.makeText(requireContext(), "注册成功", Toast.LENGTH_LONG).show()
 
                     parentFragmentManager.beginTransaction()
-                        .replace(R.id.container, Login_Fragment())
+                        .replace(R.id.login_register_container, Login_Fragment())
                         .commit()
                 }
             }

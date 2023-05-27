@@ -11,7 +11,7 @@
         android:theme="@style/Theme.QQ">
 
         <activity
-            android:name="com.wfd.qq.activity.LoginRegisterActivity"
+            android:name="com.wfd.qq.login_register.LoginRegisterActivity"
             android:launchMode="singleTop">
         </activity>
 

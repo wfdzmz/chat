@@ -12,7 +12,7 @@
         android:id="@+id/nav_message"
 
         app:defaultNavHost="true"
-        android:name="com.wfd.qq.page.Message_Fragment"
+        android:name="com.wfd.qq.main_page.Message_Fragment"
         android:label="@string/message"
         tools:layout="@layout/fragment_message">
 <!--        未知，有疑-->
@@ -24,13 +24,13 @@
 
     <fragment
         android:id="@+id/nav_contacts"
-        android:name="com.wfd.qq.page.Contacts_Fragment"
+        android:name="com.wfd.qq.main_page.Contacts_Fragment"
         android:label="@string/contacts"
         tools:layout="@layout/fragment_contacts"/>
 
     <fragment
         android:id="@+id/nav_space"
-        android:name="com.wfd.qq.page.Space_Fragment"
+        android:name="com.wfd.qq.main_page.Space_Fragment"
         android:label="@string/space"
         tools:layout="@layout/fragment_space"/>
 

@@ -1,10 +1,12 @@
-package com.wfd.qq.page
+package com.wfd.qq.main_page
 import android.os.Bundle
 import android.view.*
+import android.widget.Button
 import android.widget.ExpandableListView
 import androidx.fragment.app.Fragment
 import com.example.qq.R
 import com.wfd.qq.Adapter.ExpandableListAdapter
+import com.wfd.qq.login_register.Register_Fragment
 
 class Contacts_Fragment : Fragment() {
     override fun onCreateView(
@@ -15,6 +17,7 @@ class Contacts_Fragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_contacts, container, false)
         setHasOptionsMenu(true);  //保证能在Fragment里面调用onCreateOptionsMenu()方法
 
+        // 设置分组
         val expandableListView = view.findViewById<ExpandableListView>(R.id.expandable_list_view)
         val groupList = mutableListOf<String>("新朋友", "家人", "同事")
         val childList = mutableListOf<List<String>>(
@@ -24,6 +27,7 @@ class Contacts_Fragment : Fragment() {
         )
         val adapter = ExpandableListAdapter(requireContext(), groupList, childList)
         expandableListView.setAdapter(adapter)
+
 
         return view
     }

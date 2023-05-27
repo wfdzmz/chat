@@ -1,15 +1,15 @@
-package com.wfd.qq.page
+package com.wfd.qq.main_page
 
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.qq.R
 import com.wfd.qq.Adapter.Message_item_Adapter
 import com.wfd.qq.entity.Message_item
+import com.wfd.qq.other_page.Chat_Fragment
 
 class Message_Fragment : Fragment() , Message_item_Adapter.OnItemClickListener {
 
@@ -39,7 +39,13 @@ class Message_Fragment : Fragment() , Message_item_Adapter.OnItemClickListener {
 //        passwordEdit2 = view.findViewById<EditText>(R.id.password2)
 //        TableUser = db.userDao() ;
 
-        initFruits() // 初始化
+        // 设置标题
+//        val toolbar = view.findViewById<Toolbar>(R.id.toolbar)
+//        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+//        val actionBar = (activity as AppCompatActivity).supportActionBar
+//        actionBar?.title = "message"
+
+        init() // 初始化
 //
         val layoutManager = LinearLayoutManager(context)
         val recyclerView = view.findViewById<RecyclerView>(R.id.message_recyclerView)
@@ -57,13 +63,14 @@ class Message_Fragment : Fragment() , Message_item_Adapter.OnItemClickListener {
     }
     override fun onItemClick(position:Int) {
         // 处理点击事件
-        parentFragmentManager.beginTransaction().replace(R.id.nav_host_fragment, Chat_Fragment()).commit()
+        parentFragmentManager.beginTransaction().replace(R.id.nav_host_fragment, Chat_Fragment()).addToBackStack(null).commit()
     }
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         menu.clear()
         inflater.inflate(R.menu.sign_out, menu)
     }
-    private fun initFruits() {
+    private fun init() {
         repeat(20) {
             message_list.add(Message_item("name1", R.drawable.foreground))
             message_list.add(Message_item("name2", R.drawable.contacts_yes))

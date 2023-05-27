@@ -1,4 +1,4 @@
-package com.wfd.qq.page
+package com.wfd.qq.main_page
 
 import android.os.Bundle
 import android.view.LayoutInflater

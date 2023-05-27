@@ -7,23 +7,18 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
-import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.navigation.NavGraph.Companion.findStartDestination
-import androidx.navigation.NavOptions
 //import android.widget.Toolbar
 //import androidx.appcompat.widget.Toolbar
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
 import com.example.qq.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.wfd.qq.activity.LoginRegisterActivity
-import com.wfd.qq.page.Contacts_Fragment
-import com.wfd.qq.page.Message_Fragment
-import com.wfd.qq.page.Space_Fragment
+import com.wfd.qq.login_register.LoginRegisterActivity
+import com.wfd.qq.main_page.Contacts_Fragment
+import com.wfd.qq.main_page.Message_Fragment
+import com.wfd.qq.main_page.Space_Fragment
+import com.wfd.qq.other_page.Search_fragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,7 +32,6 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         isLogin()
-
         
         supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment, Message_Fragment()).commit()
         val bottomNavView = findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
@@ -59,13 +53,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-//        isLogin() ;
-//        val prefs = getSharedPreferences("login_data",Context.MODE_PRIVATE)
-//        // 设置标题
-//        val name = prefs.getString("name","未登录")
-//        supportActionBar?.title = name
-
-
+        val prefs = getSharedPreferences("login_data",Context.MODE_PRIVATE)
+        // 设置标题
+        val name = prefs.getString("name","未登录")
+        supportActionBar?.title = name
     }
 
     fun isLogin(){
@@ -75,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         if(!flag)
         {
             finish()
-            val intent = Intent(this,LoginRegisterActivity::class.java)
+            val intent = Intent(this, LoginRegisterActivity::class.java)
             startActivity(intent)
         }
     }
@@ -86,22 +77,42 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-
     // 设置顶部菜单的响应
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId) {
             R.id.sign_out -> {
-                finish()
-                val intent = Intent(this, LoginRegisterActivity::class.java)
-                startActivity(intent)
-                val prefs = getSharedPreferences("login_data",Context.MODE_PRIVATE)
+                val builder = AlertDialog.Builder(this)
 
-                val editor = prefs?.edit()
-                editor?.putBoolean("login", false)
-                editor?.apply()
+                // 设置弹出框二次确认
+                builder.setTitle("是否确认退出登录？")
+                // 设置按钮
+                builder.setPositiveButton("确定") { dialog, which ->
+                    // 退出登录
+                    finish()
+                    val intent = Intent(this, LoginRegisterActivity::class.java)
+                    startActivity(intent)
+                    val prefs = getSharedPreferences("login_data",Context.MODE_PRIVATE)
+
+                    val editor = prefs?.edit()
+                    editor?.putBoolean("login", false)
+                    editor?.apply()
+                }
+                builder.setNegativeButton("取消") { dialog, which ->
+                    dialog.cancel()
+                }
+
+                // 创建对话框并显示
+                val dialog = builder.create()
+                dialog.show()
+
             }
-
+            R.id.add_friend -> {
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.nav_host_fragment, Search_fragment())
+                    .addToBackStack(null)
+                    .commit()
+            }
         }
         return true
     }

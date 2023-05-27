@@ -1,4 +1,4 @@
-package com.wfd.qq.activity
+package com.wfd.qq.login_register
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,7 +11,7 @@ class LoginRegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_loginregister)
 
         // 登录界面
-        supportFragmentManager.beginTransaction().replace(R.id.container, Login_Fragment()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.login_register_container, Login_Fragment()).commit()
     }
 
 }
