@@ -2,9 +2,7 @@ package com.wfd.qq.page
 
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,6 +23,8 @@ class Message_Fragment : Fragment() , Message_item_Adapter.OnItemClickListener {
     private val message_list = ArrayList<Message_item>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+        setHasOptionsMenu(true);  //保证能在Fragment里面调用onCreateOptionsMenu()方法
         return inflater.inflate(R.layout.fragment_message, container, false)
     }
 
@@ -49,8 +49,6 @@ class Message_Fragment : Fragment() , Message_item_Adapter.OnItemClickListener {
 
         val adapter = Message_item_Adapter(message_list)
 
-
-
         recyclerView.adapter = adapter.apply {
             setOnItemClickListener { position ->
                 onItemClick(position)
@@ -59,10 +57,12 @@ class Message_Fragment : Fragment() , Message_item_Adapter.OnItemClickListener {
     }
     override fun onItemClick(position:Int) {
         // 处理点击事件
-        Toast.makeText(context,"Clicked item at position $position",Toast.LENGTH_SHORT).show()
         parentFragmentManager.beginTransaction().replace(R.id.nav_host_fragment, Chat_Fragment()).commit()
     }
-
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        menu.clear()
+        inflater.inflate(R.menu.sign_out, menu)
+    }
     private fun initFruits() {
         repeat(20) {
             message_list.add(Message_item("name1", R.drawable.foreground))

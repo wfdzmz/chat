@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/sign_out"
-        android:icon="@drawable/sign_out"
-        android:title="@string/sign_out"
+        android:id="@+id/add_facebook"
+        android:icon="@drawable/add_facebook"
+        android:title="@string/add_facebook"
         app:showAsAction="ifRoom"/>
 </menu>

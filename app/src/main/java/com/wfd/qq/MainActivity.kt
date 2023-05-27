@@ -8,7 +8,15 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.NavOptions
+//import android.widget.Toolbar
+//import androidx.appcompat.widget.Toolbar
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
 import com.example.qq.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -25,29 +33,26 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
 
+        isLogin()
+
+        
+        supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment, Message_Fragment()).commit()
         val bottomNavView = findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
         bottomNavView.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.bottom_nav_message -> {
-
                     supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment, Message_Fragment()).commit()
-//                    Toast.makeText(this,"1",Toast.LENGTH_SHORT).show()
-                     // 处理 Home 选项卡的点击事件
                     true
                 }
-
                 R.id.bottom_nav_contacts -> {
-
                     supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment, Contacts_Fragment()).commit()
-                    Toast.makeText(this,"2",Toast.LENGTH_SHORT).show()
-                    // 处理 Dashboard 选项卡的点击事件
                     true
                 }
                 R.id.bottom_nav_space -> {
                     supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment, Space_Fragment()).commit()
-                    Toast.makeText(this,"3",Toast.LENGTH_SHORT).show()
-                    // 处理 Notifications 选项卡的点击事件
                     true
                 }
                 else -> false
@@ -61,19 +66,6 @@ class MainActivity : AppCompatActivity() {
 //        supportActionBar?.title = name
 
 
-//        // 获取NavHost对象
-//        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-//        // 获取navController对象
-//        val navController = navHostFragment.navController
-
-        //创建顶层destinations，并将它们添加到底部导航栏
-//        appBarConfiguration = AppBarConfiguration(setOf(
-//            R.id.nav_home,
-//            R.id.nav_space
-//            ))
-
-//        setupActionBarWithNavController(navController, appBarConfiguration)
-//        findViewById<BottomNavigationView>(R.id.nav_view).setupWithNavController(navController)
     }
 
     fun isLogin(){
@@ -88,11 +80,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // 添加Action bar选项菜单
+//    // 添加Action bar选项菜单
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main, menu)
         return true
     }
+
+
     // 设置顶部菜单的响应
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
