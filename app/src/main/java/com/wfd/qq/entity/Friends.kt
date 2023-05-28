@@ -6,11 +6,12 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import org.jetbrains.annotations.NotNull
 
-@Entity(tableName="Friends")
+@Entity(tableName="Friends",primaryKeys = ["u_id", "friend_id"])
 data class Friends(
-    @PrimaryKey(autoGenerate = true)
+
     @NonNull
-    val id:Int = 1 ,
+    @ColumnInfo(name="u_id")
+    val u_id:Int ,
 
     @NonNull
     @ColumnInfo(name="friend_id")
