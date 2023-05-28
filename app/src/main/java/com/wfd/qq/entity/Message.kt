@@ -6,7 +6,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import org.jetbrains.annotations.NotNull
 
-@Entity(tableName="message")
+@Entity(tableName="Message")
 data class Message(
     @PrimaryKey(autoGenerate = true)
     @NonNull

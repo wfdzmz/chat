@@ -59,7 +59,7 @@ class Register_Fragment : Fragment(){
                 val user = TableUser.findByAccount(account);
                 if (user != null) Toast.makeText(requireContext(), "该用户已存在", Toast.LENGTH_LONG).show()
                 else {
-                    TableUser.insertUser(User(account, name, password1));
+                    TableUser.insertUser(User(account=account, name=name, password = password1 , image = 1));
                     Toast.makeText(requireContext(), "注册成功", Toast.LENGTH_LONG).show()
 
                     parentFragmentManager.beginTransaction()

@@ -34,10 +34,11 @@ class Login_Fragment : Fragment(){
         passwordEdit = view.findViewById<EditText>(R.id.password)
         TableUser = db.userDao()
 
-        // 设置标题
-        val act = requireActivity() as AppCompatActivity
-        val actionBar = act.supportActionBar            // 获取ActionBar对象
-        actionBar?.title = "请登录"
+        // 被Toor取代
+//        // 设置标题
+//        val act = requireActivity() as AppCompatActivity
+//        val actionBar = act.supportActionBar            // 获取ActionBar对象
+//        actionBar?.title = "请登录"
 
         // 恢复密码
         val prefs = activity?.getSharedPreferences("login_data",Context.MODE_PRIVATE)

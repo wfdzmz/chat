@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
 import com.wfd.qq.dao.UserDao
 
 
-@Database(entities = [User::class], version = 9,exportSchema=false)
+@Database(entities = [User::class,Friends::class,Groups::class,Message::class,Space::class], version = 14,exportSchema=false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
