@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/add_facebook"
+        android:id="@+id/add_space"
         android:icon="@drawable/add_facebook"
         android:title="@string/add_facebook"
         app:showAsAction="ifRoom"/>

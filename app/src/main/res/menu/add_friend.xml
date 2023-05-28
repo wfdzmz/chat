@@ -8,7 +8,7 @@
         android:title="@string/add_friend"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/add_friends"
+        android:id="@+id/add_group"
         android:icon="@drawable/add_friends"
         android:title="@string/add_friends"
         app:showAsAction="ifRoom"/>

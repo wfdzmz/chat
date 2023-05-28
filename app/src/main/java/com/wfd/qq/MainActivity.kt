@@ -5,8 +5,10 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.InputType
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
 //import android.widget.Toolbar
@@ -19,6 +21,7 @@ import com.wfd.qq.main_page.Contacts_Fragment
 import com.wfd.qq.main_page.Message_Fragment
 import com.wfd.qq.main_page.Space_Fragment
 import com.wfd.qq.other_page.Search_fragment
+import com.wfd.qq.other_page.Send_Space_Fragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -112,6 +115,34 @@ class MainActivity : AppCompatActivity() {
                     .replace(R.id.nav_host_fragment, Search_fragment())
                     .addToBackStack(null)
                     .commit()
+            }
+            R.id.add_space ->{
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.nav_host_fragment, Send_Space_Fragment())
+                    .addToBackStack(null)
+                    .commit()
+            }
+            R.id.add_group -> {
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle("请输入添加的组名")
+
+                // 设置布局
+                val input = EditText(this)
+                input.inputType = InputType.TYPE_CLASS_TEXT
+                builder.setView(input)
+
+                // 设置按钮
+                builder.setPositiveButton("确定") { dialog, which ->
+                    val text = input.text.toString()
+                    // 处理用户输入的文本
+                }
+
+                builder.setNegativeButton("取消") { dialog, which ->
+                    dialog.cancel()
+                }
+                // 创建对话框并显示
+                val dialog = builder.create()
+                dialog.show()
             }
         }
         return true

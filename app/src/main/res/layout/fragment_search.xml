@@ -1,28 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-    <!--        用户名-->
-    <EditText
-        android:id="@+id/search_account"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:hint="@string/enter_account"
-        android:textSize="16sp" />
+            <!--        用户名-->
+            <EditText
+                android:id="@+id/search_account"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/enter_account"
+                android:textSize="16sp" />
 
-        <!--        login-->
-        <Button
-            android:id="@+id/search_button"
-            android:layout_width="88dp"
-            android:layout_height="55dp"
-            android:text="@string/search"/>
+            <!--        login-->
+            <Button
+                android:id="@+id/search_button"
+                android:layout_width="88dp"
+                android:layout_height="55dp"
+                android:text="@string/search"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/search_find_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:orientation="horizontal">
+
+            <!--        用户名-->
+            <TextView
+                android:id="@+id/search_u_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:textSize="25sp"
+                android:text="Hello World!"
+
+                tools:ignore="MissingConstraints" />
+
+            <!--        login-->
+            <Button
+                android:id="@+id/search_add_friend"
+                android:visibility="gone"
+                android:layout_width="88dp"
+                android:layout_height="55dp"
+                android:text="@string/search_add"/>
+
+        </LinearLayout>
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

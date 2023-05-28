@@ -27,7 +27,7 @@ data class Message(
 
     @NonNull
     @ColumnInfo(name="msg_type")
-    var msg_type: Int
+    var type: Int
 
 )
 {

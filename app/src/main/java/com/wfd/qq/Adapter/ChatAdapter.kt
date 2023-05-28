@@ -10,10 +10,10 @@
 //
 //class ChatAdapter(val msgList: List<Message>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 //    inner class LeftViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-//        val leftMsg: TextView = view.findViewById(R.id.leftMsg)
+//        val leftMsg: TextView = view.findViewById(R.id.left_message)
 //    }
 //    inner class RightViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-//        val rightMsg: TextView = view.findViewById(R.id.rightMsg)
+//        val rightMsg: TextView = view.findViewById(R.id.right_message)
 //    }
 //    override fun getItemViewType(position: Int): Int {
 //        val msg = msgList[position]
@@ -21,11 +21,11 @@
 //    }
 //
 //    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = if (viewType == 1) {
-//        val view = LayoutInflater.from(parent.context).inflate(R.layout.msg_left_item,
+//        val view = LayoutInflater.from(parent.context).inflate(R.layout.message_left_item,
 //            parent, false)
 //        LeftViewHolder(view)
 //    } else {
-//        val view = LayoutInflater.from(parent.context).inflate(R.layout.msg_right_item,
+//        val view = LayoutInflater.from(parent.context).inflate(R.layout.message_right_item,
 //            parent, false)
 //        RightViewHolder(view)
 //    }

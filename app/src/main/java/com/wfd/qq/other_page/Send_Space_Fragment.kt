@@ -10,23 +10,25 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.qq.R
 
-class Search_fragment : Fragment() {
+class Send_Space_Fragment : Fragment() {
 
-    private lateinit var accountEdit: EditText
+    private lateinit var edit: EditText
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_search, container, false)
+        val view = inflater.inflate(R.layout.fragment_add_space, container, false)
 
 
-        val search_Button = view.findViewById<Button>(R.id.search_button)
-        search_Button.setOnClickListener {
-            accountEdit = view.findViewById<EditText>(R.id.search_account)
-            val account = accountEdit.text.toString()
+        val space_sent_button = view.findViewById<Button>(R.id.space_sent_button)
+        space_sent_button.setOnClickListener {
+            edit = view.findViewById<EditText>(R.id.space_content)
+            val content = edit.text.toString()
+            Toast.makeText(requireContext(),content,Toast.LENGTH_SHORT)
         }
+
 
         return view
     }

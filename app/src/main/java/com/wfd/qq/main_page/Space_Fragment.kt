@@ -51,7 +51,7 @@ class Space_Fragment : Fragment() , Space_item_Adapter.OnItemClickListener {
 
     private fun init() {
         repeat(5) {
-            space_list.add(Space_item("name1", "2023-5-23" , R.drawable.head1,"哈哈哈哈哈哈哈哈哈"))
+            space_list.add(Space_item("name1", "2023-5-23" , R.drawable.head1,"发个动态记录一下第一个动态实现了，哈哈哈哈哈哈哈哈哈！！！！"))
             space_list.add(Space_item("name2","20223-5-25", R.drawable.head2,getString(R.string.welcome)))
         }
     }
