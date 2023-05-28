@@ -11,13 +11,13 @@ data class Friends(
 
     @NonNull
     @ColumnInfo(name="u_id")
-    val u_id:Int ,
+    var u_id:Int ,
 
     @NonNull
     @ColumnInfo(name="friend_id")
     var friend_id: Int ,
 
     @NonNull
-    @ColumnInfo(name="group")
+    @ColumnInfo(name="group_id")
     val group_id:Int
 )

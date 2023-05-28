@@ -3,6 +3,7 @@ package com.wfd.qq.dao
 import androidx.room.*
 import com.wfd.qq.entity.Groups
 
+@Dao
 interface GroupsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertGroup(group: Groups)

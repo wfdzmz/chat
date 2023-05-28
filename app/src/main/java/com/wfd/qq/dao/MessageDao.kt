@@ -19,7 +19,7 @@ interface MessageDao {
     @Query("select * from Message")
     fun selectAllMessage():List<Message>
 
-    @Query("select * from Message where u_id1 =:uid and U_id2 = f_id")
+    @Query("select * from Message where u_id1 =:uid and U_id2 = :f_id")
     fun selectMessageByUidAndFid(uid:Int,f_id:Int):List<Message>
 
 }

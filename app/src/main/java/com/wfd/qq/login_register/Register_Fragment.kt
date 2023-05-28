@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import com.example.qq.R
 import com.wfd.qq.dao.UserDao
 import com.wfd.qq.entity.AppDatabase
+import com.wfd.qq.entity.Groups
 import com.wfd.qq.entity.User
 
 class Register_Fragment : Fragment(){
@@ -56,10 +57,12 @@ class Register_Fragment : Fragment(){
             else if(password1 != password2) Toast.makeText(requireContext(), "密码不一致", Toast.LENGTH_SHORT).show()
             else
             {
-                val user = TableUser.findByAccount(account);
+                var user = TableUser.findByAccount(account);
                 if (user != null) Toast.makeText(requireContext(), "该用户已存在", Toast.LENGTH_LONG).show()
                 else {
                     TableUser.insertUser(User(account=account, name=name, password = password1 , image = 1));
+                    user = TableUser.findByAccount(account);
+                    db.groupsDao().insertGroup(Groups(u_id = user?.id ?: 0 , group = "好友"))
                     Toast.makeText(requireContext(), "注册成功", Toast.LENGTH_LONG).show()
 
                     parentFragmentManager.beginTransaction()

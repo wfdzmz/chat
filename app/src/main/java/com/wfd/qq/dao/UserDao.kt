@@ -19,10 +19,10 @@ interface UserDao {
     fun loadAllUsers(): List<User>
 
     @Query("SELECT * FROM users WHERE name =:name")
-    fun findByName(name: String):User?
+    fun findByName(name: String):User
 
     @Query("SELECT * FROM users WHERE account =:account")
-    fun findByAccount(account: String): User?
+    fun findByAccount(account: String): User
 
 //    @Query("select * from users where user_id = :id")
 //    fun findByUser(id:String)

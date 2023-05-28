@@ -4,6 +4,7 @@ import androidx.room.*
 import com.wfd.qq.entity.Friends
 import com.wfd.qq.entity.Message
 
+@Dao
 interface FriendsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertFriends(friend: Friends)
@@ -17,6 +18,6 @@ interface FriendsDao {
     @Query("select * from Friends")
     fun selectAllFriends():List<Friends>
 
-    @Query("select * from Message where u_id1 =:uid and U_id2 = f_id")
-    fun selectMessageByUidAndFid(uid:Int,f_id:Int):List<Message>
+    @Query("select * from Friends where u_id = :uid and friend_id =:f_id")
+    fun selectfriendByUidAndFid(uid:Int,f_id:Int):List<Friends>
 }
