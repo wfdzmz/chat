@@ -71,9 +71,13 @@ class Message_Fragment : Fragment() , Message_item_Adapter.OnItemClickListener {
         inflater.inflate(R.menu.sign_out, menu)
     }
     private fun init() {
-        repeat(20) {
-            message_list.add(Message_item("name1", R.drawable.foreground))
-            message_list.add(Message_item("name2", R.drawable.contacts_yes))
+        repeat(1) {
+            message_list.add(Message_item("lihua", R.drawable.head1))
+            message_list.add(Message_item("wnger", R.drawable.head4))
+
+            message_list.add(Message_item("zansan", R.drawable.head2))
+            message_list.add(Message_item("xiaomin", R.drawable.head3))
+            message_list.add(Message_item("haha", R.drawable.head5))
         }
     }
 
