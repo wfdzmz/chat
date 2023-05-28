@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
 import com.wfd.qq.dao.UserDao
 
 
-@Database(entities = [User::class], version = 1,exportSchema=false)
+@Database(entities = [User::class], version = 9,exportSchema=false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
@@ -20,6 +20,7 @@ abstract class AppDatabase : RoomDatabase() {
                 synchronized(this) {
                     INSTANCE = Room.databaseBuilder(context.applicationContext,
                         AppDatabase::class.java, "chat").allowMainThreadQueries()
+                        .fallbackToDestructiveMigration()
                         .build()
                 }
             }
