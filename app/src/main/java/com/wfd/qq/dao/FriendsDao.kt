@@ -18,6 +18,12 @@ interface FriendsDao {
     @Query("select * from Friends")
     fun selectAllFriends():List<Friends>
 
+    @Query("select * from Friends where u_id = :uid")
+    fun findFriendsByUid(uid:Int):List<Friends>
+
     @Query("select * from Friends where u_id = :uid and friend_id =:f_id")
-    fun selectfriendByUidAndFid(uid:Int,f_id:Int):List<Friends>
+    fun selectfriendByUidAndFid(uid:Int,f_id:Int):Friends
+
+    @Query("select * from Friends where u_id = :uid and group_id =:g_id")
+    fun selectfriendByUidAndGroupid(uid:Int,g_id:Int):List<Friends>
 }

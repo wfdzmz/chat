@@ -1,28 +1,24 @@
 package com.wfd.qq.entity
 
+
 import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import org.jetbrains.annotations.NotNull
 
-@Entity(tableName="space")
-data class Space(
-
+@Entity(tableName="Login_user")
+data class Login_user(
     @PrimaryKey(autoGenerate = true)
     @NonNull
     val id:Int = 0 ,
 
     @NonNull
-    @ColumnInfo(name = "u_id")
-    val u_id:Int,
+    @ColumnInfo(name = "account")
+    val account:String ,
 
     @NonNull
-    @ColumnInfo(name="time")
-    val time: String,
-
-    @ColumnInfo(name="content")
-    val content: String,
+    @ColumnInfo(name= "name")
+    val name: String,
 
     @ColumnInfo(name="image")
     val image: Int

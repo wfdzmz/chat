@@ -7,17 +7,13 @@
     android:background="@drawable/bg1"
     tools:context="com.wfd.qq.MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/chat_recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="655dp"
-        android:layout_weight="1"
-        tools:ignore="MissingConstraints" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:id="@+id/chat_layout"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -31,12 +27,25 @@
             android:hint="@string/enter_message"
             android:textSize="16sp"/>
         <Button
-            android:id="@+id/send"
+            android:id="@+id/chat_send"
             android:layout_height="55dp"
             android:layout_width="0dp"
             android:layout_weight="2"
             android:text="@string/send"/>
 
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chat_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+
+        app:layout_constraintBottom_toTopOf="@+id/chat_layout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

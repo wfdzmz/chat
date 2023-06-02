@@ -12,8 +12,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.qq.R
+import com.wfd.qq.dao.Login_userDao
 import com.wfd.qq.dao.UserDao
 import com.wfd.qq.entity.AppDatabase
+import com.wfd.qq.entity.Login_user
 
 class Login_Fragment : Fragment(){
     private lateinit var db: AppDatabase
@@ -75,6 +77,9 @@ class Login_Fragment : Fragment(){
                 editor?.putString("password", password)
                 editor?.putBoolean("login", true)
                 editor?.apply()
+
+                val Tablelogin_user = db.login_userDao()
+                Tablelogin_user.insertLogin_user(Login_user(account=account , name = user.name, image = 1))
 
                 // 跳转到欢迎页
                 parentFragmentManager.beginTransaction()

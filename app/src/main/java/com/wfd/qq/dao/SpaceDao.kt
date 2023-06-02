@@ -16,6 +16,10 @@ interface SpaceDao {
     @Delete
     fun deleteSpace(space: Space)
 
+    @Query("select * from Space where u_id = :uid")
+    fun findById(uid:Int) :List<Space>
+
+
 //    @Query("SELECT * FROM Space INNER JOIN Friends ON Friends.u_id = Space.u_id WHERE Space.u_id = :u_id")
 //    fun selectFriendSpaceByUid(u_id:Int): List<Space>
 

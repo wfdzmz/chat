@@ -8,14 +8,16 @@ import androidx.room.RoomDatabase
 import com.wfd.qq.dao.*
 
 
-@Database(entities = [User::class,Friends::class,Groups::class,Message::class,Space::class], version = 15,exportSchema=false)
+@Database(entities = [User::class,Friends::class,Groups::class,Message::class,Space::class,Login_user::class], version = 18,exportSchema=false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
     abstract fun friendsDao(): FriendsDao
-    abstract fun message(): MessageDao
+    abstract fun messageDao(): MessageDao
     abstract fun spaceDao(): SpaceDao
     abstract fun groupsDao(): GroupsDao
+    abstract fun login_userDao(): Login_userDao
+
 
     companion object {
         private var INSTANCE: AppDatabase? = null

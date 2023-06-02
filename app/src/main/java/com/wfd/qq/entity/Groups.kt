@@ -9,13 +9,13 @@ import androidx.room.PrimaryKey
 data class Groups(
     @PrimaryKey(autoGenerate = true)
     @NonNull
-    val id:Int = 1 ,
+    val id:Int = 0 ,
 
     @NonNull
-    @ColumnInfo(name="friend_id")
+    @ColumnInfo(name="u_id")
     var u_id: Int ,
 
     @NonNull
-    @ColumnInfo(name="group")
+    @ColumnInfo(name="group_name")
     val group: String
 )

@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull
 data class Message(
     @PrimaryKey(autoGenerate = true)
     @NonNull
-    val id:Int = 1 ,
+    val id:Int = 0 ,
     @NonNull
     @ColumnInfo(name = "u_id1")
     var u_id1:Int,

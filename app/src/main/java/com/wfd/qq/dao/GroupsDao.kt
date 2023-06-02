@@ -14,6 +14,11 @@ interface GroupsDao {
     @Delete
     fun deleteGroup(group: Groups)
 
-    @Query("select * from Groups")
-    fun selectAllGroup():List<Groups>
+    @Query("select * from Groups where u_id = :uid")
+    fun selectAllGroupByUid(uid:Int):List<Groups>
+
+    @Query("select * from Groups where u_id = :uid and group_name = :group")
+    fun selectAllGroupByUidandGroup(uid:Int , group:String):Groups
+
+
 }

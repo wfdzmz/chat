@@ -19,5 +19,5 @@ data class Friends(
 
     @NonNull
     @ColumnInfo(name="group_id")
-    val group_id:Int
+    var group_id:Int
 )
