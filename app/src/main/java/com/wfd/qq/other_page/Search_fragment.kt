@@ -106,8 +106,7 @@ class Search_fragment : Fragment() {
                     if (g == null) Toast.makeText(requireContext(), "该分组不存在", Toast.LENGTH_LONG)
                         .show()
                     else {
-                        val friends =
-                            Friends(u_id = user.id, friend_id = friend.id, group_id = g.id)
+                        val friends = Friends(u_id = user.id, friend_id = friend.id, group_id = g.id)
 
                         TableFriens.insertFriends(friends)
 

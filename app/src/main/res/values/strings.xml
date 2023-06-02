@@ -14,7 +14,7 @@
 
     <string name="welcome">  这个app提供了聊天和朋友圈共享功能，
         让你可以与朋友们保持联系，并分享你的生活。让你的聊天体验更加丰富。
-        此外，它还可以帮助你结交新朋友，扩大你的社交圈子，让你的生活更加充实和有趣。点击任意地方继续</string>
+        此外，它还可以帮助你结交新朋友，扩大你的社交圈子，让你的生活更加充实和有趣。</string>
 
     <string name="message">消息</string>
     <string name="enter_message">输入消息</string>
